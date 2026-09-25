@@ -1,0 +1,10 @@
+{
+  "name": "shape-atelier",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 4173",
+    "preview:pages": "python3 scripts/preview-pages.py"
+  }
+}

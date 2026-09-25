@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#faf8f2">
+  <meta name="description" content="紙のかたちが、あなただけのキャンバスに。写真から取り込んだ形に自由にお絵描きできる無料のWebアプリ。">
+  <title>かたちのアトリエ — 紙からはじまるお絵描き</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M8 5 9.5 3h5L16 5h4a2 2 0 0 1 2 2v12H2V7a2 2 0 0 1 2-2Z"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="m4 16-1 5 5-1L21 7l-4-4ZM14 6l4 4M4 16l4 4"/></symbol>
+  <symbol id="i-erase" viewBox="0 0 24 24"><path d="m4 11 9-9 9 9-10 10H7l-5-5a2 2 0 0 1 0-3ZM7 8l9 9M12 21h10"/></symbol>
+  <symbol id="i-ellipse" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="8"/></symbol>
+  <symbol id="i-rectangle" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/></symbol>
+  <symbol id="i-triangle" viewBox="0 0 24 24"><path d="M12 3 22 21H2Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21C8 17 2 13 2 7a5 5 0 0 1 10-1A5 5 0 0 1 22 7c0 6-6 10-10 14Z"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="m8 3-6 6 6 6M2 9h12a7 7 0 0 1 0 14"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="m16 3 6 6-6 6m6-6H10a7 7 0 0 0 0 14"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M3 16v5h18v-5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+</defs></svg>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="かたちのアトリエ ホーム"><span class="brand-mark">か</span><span>かたちのアトリエ<small>SHAPE ATELIER</small></span></a>
+  <span class="header-note"><span class="status-dot"></span>ひらめきを、かたちに。</span>
+</header>
+<main>
+  <nav aria-label="制作のステップ" class="steps"><ol>
+    <li aria-current="step"><span>1</span><b>形を取り込む</b></li><li><span>2</span><b>輪郭を確認</b></li><li><span>3</span><b>お絵描き</b></li><li><span>4</span><b>保存</b></li>
+  </ol></nav>
+  <section id="import-screen" class="screen">
+    <div class="intro"><p class="eyebrow">ちいさな紙から、ひろがる想像。</p><h1>そのかたち、<br class="mobile-break">何にみえる？<span class="title-spark">✳</span></h1><p class="lead">切りぬいた紙をパシャリ。<br class="mobile-break">きみだけのキャンバスに、お絵描きしよう。</p></div>
+    <div class="import-grid">
+      <div class="import-card"><span class="mini-label">LET’S MAKE SOMETHING</span><h2>まずは、紙の形を取り込もう</h2><p>暗い色の机や布の上に、白い紙を置いてね。</p>
+        <button id="camera-button" class="import-action camera-action"><span class="action-icon"><svg><use href="#i-camera"/></svg></span><span><strong>写真を撮る</strong><small>カメラで紙をパシャリ</small></span><span class="arrow">↗</span></button>
+        <button id="upload-button" class="import-action"><span class="action-icon"><svg><use href="#i-image"/></svg></span><span><strong>画像を選ぶ</strong><small>保存してある写真から</small></span><span class="arrow">→</span></button>
+        <div class="demo-row"><span>紙が手元になくても大丈夫</span><button id="demo-button" class="text-button">おためしの形で遊ぶ <span>→</span></button></div>
+      </div>
+      <div class="illustration" aria-label="紙の形にお絵描きしたお花のイラスト" role="img"><span class="tape tape-top"></span><span class="art-note">じぶんの「すき」を<br>いっぱい描こう。</span>
+      <svg class="flower-art" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="paper-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#c5d4dc"/></pattern></defs><rect width="420" height="340" fill="url(#paper-dots)"/><g transform="rotate(-9 210 175)"><path d="M206 52C174 0 122 42 137 87C79 70 60 124 106 150C52 180 84 232 131 219C114 271 169 292 198 249C224 296 282 274 265 228C318 244 342 190 294 160C348 127 309 76 267 95C278 44 231 17 206 52Z" fill="#fff" stroke="#22354b" stroke-width="3"/><path d="M204 85C176 42 144 62 164 113C105 88 88 128 145 153C88 181 111 212 166 194C142 246 177 264 203 214C234 263 269 240 244 191C300 217 323 176 263 155C321 122 290 94 240 116C254 60 225 50 204 85" fill="#f8c85c"/><path d="M204 85C176 42 144 62 164 113C105 88 88 128 145 153C88 181 111 212 166 194C142 246 177 264 203 214C234 263 269 240 244 191C300 217 323 176 263 155C321 122 290 94 240 116C254 60 225 50 204 85" fill="none"/><ellipse cx="205" cy="158" rx="51" ry="47" fill="#ef927d"/><path d="M185 150v7m39-7v7m-39 15q19 23 39 0" fill="none" stroke="#293b46" stroke-width="5" stroke-linecap="round"/><path d="m121 105 16 7m-20 84 17-5m40 49 7-16m91-30-15-8m20-63-13 8m-69-64 4 16" stroke="#dba433" stroke-width="3" stroke-linecap="round"/></g><path d="m325 266 44-94 12 6-44 94-15 14Z" fill="#759e91" stroke="#263b46" stroke-width="2"/><path d="m322 286 15-14-12-6Z" fill="#f9dbba"/><path d="m322 286 4-10 4 4Z" fill="#263b46"/></svg>
+      <span class="art-caption">はみだしても大丈夫。形の中だけに描けるよ。</span><span class="tape tape-bottom"></span></div>
+    </div>
+    <div class="tips"><span class="tip-heading">じょうずに撮るコツ</span><span><b>01</b> 背景は暗く</span><span><b>02</b> 紙は明るく</span><span><b>03</b> 真上からパシャリ</span></div>
+  </section>
+  <section id="review-screen" class="screen" hidden>
+    <div class="section-heading"><div><p class="eyebrow">CHECK YOUR SHAPE</p><h1>このかたちで、いいかな？</h1><p>青い線が、見つけた紙の輪郭だよ。</p></div><button class="button secondary restart-button">別の写真でやり直す</button></div>
+    <div class="review-grid"><div class="photo-stage"><canvas id="review-canvas" aria-label="元の写真と認識した輪郭"></canvas><span class="stage-tag">元の写真 ＋ 見つけた輪郭</span></div><aside class="settings-card"><span class="mini-label">かたちをチェック</span><h2>紙のふちに合っている？</h2><p>線がずれていたら、下のつまみを動かして調整してね。</p><label class="range-label" for="threshold">白さの判定 <output id="threshold-value">180</output></label><input id="threshold" type="range" min="20" max="250" value="180"><div class="range-ends"><span>影のある紙も含める</span><span>明るいところだけ</span></div><p id="recognition-status" class="recognition-status" role="status"></p><button id="accept-button" class="button primary wide"><svg><use href="#i-check"/></svg>この輪郭でOK <span>→</span></button><p class="small-note">次の画面では写真の背景がなくなり、<br>まっ白なキャンバスになるよ。</p></aside></div>
+  </section>
+  <section id="draw-screen" class="screen" hidden>
+    <div class="section-heading"><div><p class="eyebrow">YOUR LITTLE ATELIER</p><h1>かたちの中に、自由に描こう。</h1><p>指でもマウスでも。何度でも描きなおせるよ。</p></div><button id="finish-button" class="button primary"><svg><use href="#i-check"/></svg>できた！ 保存へ</button></div>
+    <div class="workspace"><aside class="drawing-tools" aria-label="お絵描きの道具"><div class="tool-group tools-group"><span class="tool-label">どうぐ</span><div class="tool-grid" role="group" aria-label="描く道具を選ぶ">
+<button id="pen-button" data-tool="pen" class="tool-button selected" aria-pressed="true"><svg><use href="#i-pen"/></svg><span>ペン</span></button>
+<button id="eraser-button" data-tool="eraser" class="tool-button" aria-pressed="false"><svg><use href="#i-erase"/></svg><span>消しゴム</span></button>
+<button id="ellipse-button" data-tool="ellipse" class="tool-button" aria-pressed="false"><svg><use href="#i-ellipse"/></svg><span>円／楕円</span></button>
+<button id="rectangle-button" data-tool="rectangle" class="tool-button" aria-pressed="false"><svg><use href="#i-rectangle"/></svg><span>四角形</span></button>
+<button id="triangle-button" data-tool="triangle" class="tool-button" aria-pressed="false"><svg><use href="#i-triangle"/></svg><span>三角形</span></button>
+<button id="star-button" data-tool="star" class="tool-button" aria-pressed="false"><svg><use href="#i-star"/></svg><span>星型</span></button>
+<button id="heart-button" data-tool="heart" class="tool-button" aria-pressed="false"><svg><use href="#i-heart"/></svg><span>ハート型</span></button>
+</div><p id="tool-hint" class="tool-hint" aria-live="polite">指やマウスを動かして、自由に描こう。</p></div><div class="tool-group color-group"><span class="tool-label">いろ</span><div id="palette" class="palette"></div><label class="custom-color">好きな色をつくる <input id="custom-color" type="color" value="#ef806e" aria-label="好きな色を選ぶ"></label></div><div class="tool-group"><label class="range-label" for="pen-size">ペンの太さ <output id="pen-size-value">12</output></label><input id="pen-size" type="range" min="1" max="80" value="12"></div><div class="tool-group outline-tools"><label class="toggle-label" for="outline-visible">輪郭を見せる <input id="outline-visible" type="checkbox" checked></label><label class="range-label" for="outline-size">輪郭の太さ <output id="outline-size-value">2</output></label><input id="outline-size" type="range" min="1" max="12" step="0.5" value="2"></div><button class="text-button restart-button new-shape">← 新しい形で遊ぶ</button></aside><div class="drawing-area"><div class="canvas-toolbar"><span><span class="status-dot"></span>きみだけのキャンバス</span><div class="history-buttons"><button id="undo-button" class="icon-button" aria-label="1つ戻る" title="1つ戻る (Ctrl / ⌘ + Z)" disabled><svg><use href="#i-undo"/></svg></button><button id="redo-button" class="icon-button" aria-label="やり直す" title="やり直す (Ctrl / ⌘ + Shift + Z)" disabled><svg><use href="#i-redo"/></svg></button><button id="clear-button" class="icon-button" aria-label="描いたものを全消去" title="描いたものを全消去" disabled><svg><use href="#i-trash"/></svg></button></div></div><div class="canvas-stage"><canvas id="drawing-canvas" aria-label="輪郭の内側にお絵描きするキャンバス"></canvas></div><p class="canvas-caption">はみだす心配なし。のびのび描いてね。<span id="canvas-dimensions"></span></p></div></div>
+  </section>
+  <section id="save-screen" class="screen" hidden><div class="intro"><p class="eyebrow">MADE BY YOU</p><h1>すてきな作品、できあがり！</h1><p class="lead">世界にひとつのかたちを、持ち帰ろう。</p></div><div class="save-layout"><div class="saved-art"><img id="save-preview" alt="完成したお絵描き作品"></div><div class="settings-card"><span class="completion-badge">✳ NICE CREATION!</span><h2>きみの作品を保存しよう</h2><p>白い背景・お絵描き・表示中の輪郭を、1枚のPNG画像にするよ。</p><a id="download-button" class="button primary wide" download="かたちのアトリエ.png"><svg><use href="#i-download"/></svg>PNG画像を保存</a><p class="small-note">スマートフォンで保存できないときは、<br>作品の画像を長押しして保存してね。</p><button id="back-to-draw" class="button secondary wide">もう少し描く</button><button class="text-button restart-button">新しい形で遊ぶ →</button></div></div></section>
+  <div id="message" class="toast" role="status" hidden></div>
+  <div id="busy" class="busy" role="status" hidden><span class="spinner"></span><span>紙のかたちを探しています…</span></div>
+</main>
+<footer><span>かたちのアトリエ</span><p>写真はこの端末の中だけで処理されます。外部には送信しません。</p><span class="footer-sign">LET YOUR IMAGINATION PLAY.</span></footer>
+<input id="camera-input" type="file" accept="image/*" capture="environment" hidden><input id="file-input" type="file" accept="image/*" hidden>
+<dialog id="confirm-dialog"><h2 id="confirm-title"></h2><p id="confirm-description"></p><div class="dialog-actions"><button id="confirm-cancel" class="button secondary">やめる</button><button id="confirm-ok" class="button primary">全消去する</button></div></dialog>
+</body></html>
